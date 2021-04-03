@@ -1,0 +1,49 @@
+import java.awt.Frame;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.event.*;
+
+public class ChangeBackground extends Frame implements ActionListener {
+	Button red,green,blue;
+	public ChangeBackground() {
+		red = new Button("Red");
+		green = new Button("Green");
+		blue = new Button("Blue");
+		
+		setLayout(new FlowLayout());
+	
+	add(red);
+	add(green);
+	add(blue);
+	 
+	red.addActionListener(this);
+    green.addActionListener(this);
+	blue.addActionListener(this);
+	
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+  ChangeBackground c = new ChangeBackground();
+  c.setTitle("Changing background color of frame");
+  c.setSize(300, 300);
+  c.setVisible(true);
+  
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		String clickedButton = e.getActionCommand();
+		System.out.println(clickedButton + "clicked");
+		if(e.getSource()== red) {
+			setBackground(Color.red);
+	}
+		else if(e.getSource()== green) {
+			setBackground(Color.green);
+	}
+		else {
+			setBackground(Color.blue);
+		}
+	}
+	
+	
+}
